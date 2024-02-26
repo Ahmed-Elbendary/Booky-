@@ -1,0 +1,41 @@
+﻿@model IEnumerable< Book>
+
+<table class="table">
+    <thead >
+        <tr>
+            <th> Title </th>
+            <th> Author </th>
+            <th> Categroy</th>
+            <th> Addon </th>
+            <th> Description</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach(var Book in Model)
+        {
+            <tr>
+                <td> @Book.Title </td>
+
+                <td> @Book.Author </td>
+
+              <td>@Book.Category.Name </td>
+
+                <td> @Book.Addon </td>
+
+                <td> @Book.Description </td>
+                <td> <a class="btn btn-light mt-4" asp-controller="Book" asp-action="Edit" asp-route-Id="@Book.Id">Edit</a> </td>
+                <td> <a class="btn btn-light mt-4" asp-controller="Book" asp-action="Delete" asp-route-Id="@Book.Id">Delete</a> </td>
+            </tr>
+
+           
+
+       
+            
+        }
+    </tbody>
+
+
+</table>
+
+<a asp-controller="Book" asp-action="Create" class="btn btn-light mt-4">Add Book +</a>
